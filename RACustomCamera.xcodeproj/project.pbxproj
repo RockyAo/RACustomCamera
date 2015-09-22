@@ -101,6 +101,7 @@
 		5CF338B11BAFF22C00F60ACD /* RACustomCamera */ = {
 			isa = PBXGroup;
 			children = (
+				5CF338E51BAFF3E900F60ACD /* RACustomCamera */,
 				5CF338B51BAFF22C00F60ACD /* AppDelegate.h */,
 				5CF338B61BAFF22C00F60ACD /* AppDelegate.m */,
 				5CF338B81BAFF22C00F60ACD /* ViewController.h */,
@@ -138,6 +139,13 @@
 				5CF338D91BAFF22C00F60ACD /* Info.plist */,
 			);
 			path = RACustomCameraUITests;
+			sourceTree = "<group>";
+		};
+		5CF338E51BAFF3E900F60ACD /* RACustomCamera */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RACustomCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +506,7 @@
 				5CF338DE1BAFF22C00F60ACD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CF338DF1BAFF22C00F60ACD /* Build configuration list for PBXNativeTarget "RACustomCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +515,7 @@
 				5CF338E11BAFF22C00F60ACD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CF338E21BAFF22C00F60ACD /* Build configuration list for PBXNativeTarget "RACustomCameraUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +524,7 @@
 				5CF338E41BAFF22C00F60ACD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
