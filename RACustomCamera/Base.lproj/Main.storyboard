@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Custom Camera Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RACustomCameraController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcb-dG-MTS">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="AWZ-hF-eh8">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="E63-a9-Cpf">
+                                            <rect key="frame" x="20" y="7" width="124" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Font"/>
+                                                <segment title="Back"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="switchCameraSegmentedControlClick:" destination="BYZ-38-t0r" eventType="valueChanged" id="hgk-c4-Or9"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c8r-XH-sdL"/>
+                                    <barButtonItem title="snap" id="nd3-Cf-g2I">
+                                        <connections>
+                                            <action selector="takePhotoButtonClick:" destination="BYZ-38-t0r" id="SG3-0X-Mg5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N4x-6w-EHA"/>
+                                    <barButtonItem title="flashAuto" id="FgO-FR-8qa">
+                                        <connections>
+                                            <action selector="flashButtonClick:" destination="BYZ-38-t0r" id="9eY-Sd-Tde"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vj2-4J-hGn" userLabel="preferView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pcb-dG-MTS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="II2-Vw-b2k"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pcb-dG-MTS" secondAttribute="bottom" id="a8f-G5-WPD"/>
+                            <constraint firstAttribute="trailing" secondItem="Vj2-4J-hGn" secondAttribute="trailing" id="oq4-Zu-3Lb"/>
+                            <constraint firstItem="Pcb-dG-MTS" firstAttribute="top" secondItem="Vj2-4J-hGn" secondAttribute="bottom" id="quc-eV-jkE"/>
+                            <constraint firstItem="Vj2-4J-hGn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="smO-gc-a5J"/>
+                            <constraint firstItem="Vj2-4J-hGn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xHp-T7-7Sm"/>
+                            <constraint firstAttribute="trailing" secondItem="Pcb-dG-MTS" secondAttribute="trailing" id="zGQ-X9-pg5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backView" destination="Vj2-4J-hGn" id="gGa-cu-O53"/>
+                        <outlet property="flashButton" destination="FgO-FR-8qa" id="ieB-mb-iVb"/>
+                        <outlet property="switchCarmeraSegment" destination="E63-a9-Cpf" id="abx-4b-Pbb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="298"/>
         </scene>
     </scenes>
 </document>

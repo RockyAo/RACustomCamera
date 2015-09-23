@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol RACustomCameraControllerDelegate <NSObject>
+
+@optional
+- (void)photoCapViewController:(UIViewController *)viewController didFinishDismissWithImage:(UIImage *)image;
+
+@end
 @interface RACustomCameraController : UIViewController
+
+@property(nonatomic,weak)id<RACustomCameraControllerDelegate> delegate;
 
 @end
