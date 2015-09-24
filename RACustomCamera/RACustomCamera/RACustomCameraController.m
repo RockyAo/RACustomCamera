@@ -33,13 +33,12 @@
 #import "RACustomCameraController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "Masonry.h"
 
 #define kMainScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kMainScreenHeight  [UIScreen mainScreen].bounds.size.height
 
 
-@interface RACustomCameraController ()
+@interface RACustomCameraController ()<UIGestureRecognizerDelegate>
 //界面控件
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *switchCarmeraSegment;
@@ -65,7 +64,14 @@
  */
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer* previewLayer;
 
-
+/**
+ *  记录开始的缩放比例
+ */
+@property(nonatomic,assign)CGFloat beginGestureScale;
+/**
+ *  最后的缩放比例
+ */
+@property(nonatomic,assign)CGFloat effectiveScale;
 @end
 
 @implementation RACustomCameraController{
@@ -76,20 +82,17 @@
 
 #pragma mark life circle
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-        isUsingFrontFacingCamera = NO;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self initAVCaptureSession];
+    
+    [self setUpGesture];
+    
+    isUsingFrontFacingCamera = NO;
+    
+    self.effectiveScale = self.beginGestureScale = 1.0f;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -169,6 +172,23 @@
     return result;
 }
 
+#pragma 创建手势
+- (void)setUpGesture{
+
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+    pinch.delegate = self;
+    [self.backView addGestureRecognizer:pinch];
+}
+
+#pragma mark gestureRecognizer delegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ( [gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] ) {
+        self.beginGestureScale = self.effectiveScale;
+    }
+    return YES;
+}
+
 #pragma mark respone method
 //切换镜头
 - (IBAction)switchCameraSegmentedControlClick:(UISegmentedControl *)sender {
@@ -204,7 +224,7 @@
     UIDeviceOrientation curDeviceOrientation = [[UIDevice currentDevice] orientation];
     AVCaptureVideoOrientation avcaptureOrientation = [self avOrientationForDeviceOrientation:curDeviceOrientation];
     [stillImageConnection setVideoOrientation:avcaptureOrientation];
-    [stillImageConnection setVideoScaleAndCropFactor:1];
+    [stillImageConnection setVideoScaleAndCropFactor:self.effectiveScale];
     
     [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:stillImageConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
        
@@ -256,7 +276,44 @@
     [device unlockForConfiguration];
 }
 
+//缩放手势 用于调整焦距
+- (void)handlePinchGesture:(UIPinchGestureRecognizer *)recognizer{
 
+    BOOL allTouchesAreOnThePreviewLayer = YES;
+    NSUInteger numTouches = [recognizer numberOfTouches], i;
+    for ( i = 0; i < numTouches; ++i ) {
+        CGPoint location = [recognizer locationOfTouch:i inView:self.backView];
+        CGPoint convertedLocation = [self.previewLayer convertPoint:location fromLayer:self.previewLayer.superlayer];
+        if ( ! [self.previewLayer containsPoint:convertedLocation] ) {
+            allTouchesAreOnThePreviewLayer = NO;
+            break;
+        }
+    }
+    
+    if ( allTouchesAreOnThePreviewLayer ) {
+        
+        
+        self.effectiveScale = self.beginGestureScale * recognizer.scale;
+        if (self.effectiveScale < 1.0){
+            self.effectiveScale = 1.0;
+        }
+        
+        NSLog(@"%f-------------->%f------------recognizerScale%f",self.effectiveScale,self.beginGestureScale,recognizer.scale);
+
+        CGFloat maxScaleAndCropFactor = [[self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo] videoMaxScaleAndCropFactor];
+        
+        NSLog(@"%f",maxScaleAndCropFactor);
+        if (self.effectiveScale > maxScaleAndCropFactor)
+            self.effectiveScale = maxScaleAndCropFactor;
+        
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:.025];
+        [self.previewLayer setAffineTransform:CGAffineTransformMakeScale(self.effectiveScale, self.effectiveScale)];
+        [CATransaction commit];
+        
+    }
+
+}
 
 
 
