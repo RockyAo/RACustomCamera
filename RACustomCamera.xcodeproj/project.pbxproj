@@ -220,6 +220,7 @@
 				TargetAttributes = {
 					5CF338AE1BAFF22C00F60ACD = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NQ84VMKY7C;
 					};
 					5CF338C71BAFF22C00F60ACD = {
 						CreatedOnToolsVersion = 7.0;
@@ -425,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NQ84VMKY7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RACustomCamera",
@@ -432,7 +434,7 @@
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcbl.RACustomCamera;
 				PRODUCT_NAME = RACustomCamera;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -442,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NQ84VMKY7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RACustomCamera",
@@ -449,7 +452,7 @@
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcbl.RACustomCamera;
 				PRODUCT_NAME = RACustomCamera;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
