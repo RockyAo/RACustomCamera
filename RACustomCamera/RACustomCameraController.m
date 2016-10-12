@@ -83,6 +83,7 @@
 #pragma mark life circle
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [self initAVCaptureSession];

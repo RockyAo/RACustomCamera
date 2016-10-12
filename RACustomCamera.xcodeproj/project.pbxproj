@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C4CAD0B1BB13CA600E3E152 /* RACustomCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4CAD0A1BB13CA600E3E152 /* RACustomCameraController.m */; settings = {ASSET_TAGS = (); }; };
 		5CF338B41BAFF22C00F60ACD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF338B31BAFF22C00F60ACD /* main.m */; };
 		5CF338B71BAFF22C00F60ACD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF338B61BAFF22C00F60ACD /* AppDelegate.m */; };
 		5CF338BD1BAFF22C00F60ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF338BB1BAFF22C00F60ACD /* Main.storyboard */; };
@@ -15,6 +14,8 @@
 		5CF338C21BAFF22C00F60ACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF338C01BAFF22C00F60ACD /* LaunchScreen.storyboard */; };
 		5CF338CD1BAFF22C00F60ACD /* RACustomCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF338CC1BAFF22C00F60ACD /* RACustomCameraTests.m */; };
 		5CF338D81BAFF22C00F60ACD /* RACustomCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF338D71BAFF22C00F60ACD /* RACustomCameraUITests.m */; };
+		D884AD821DADDFDE00AB4EB3 /* RACustomCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = D884AD811DADDFDE00AB4EB3 /* RACustomCameraController.m */; };
+		D884AD851DADE0E200AB4EB3 /* RACustomCameraTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D884AD841DADE0E200AB4EB3 /* RACustomCameraTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C4CAD091BB13CA600E3E152 /* RACustomCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACustomCameraController.h; sourceTree = "<group>"; };
-		5C4CAD0A1BB13CA600E3E152 /* RACustomCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACustomCameraController.m; sourceTree = "<group>"; };
 		5CF338AF1BAFF22C00F60ACD /* RACustomCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACustomCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF338B31BAFF22C00F60ACD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5CF338B51BAFF22C00F60ACD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +50,10 @@
 		5CF338D31BAFF22C00F60ACD /* RACustomCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACustomCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF338D71BAFF22C00F60ACD /* RACustomCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACustomCameraUITests.m; sourceTree = "<group>"; };
 		5CF338D91BAFF22C00F60ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D884AD801DADDFDE00AB4EB3 /* RACustomCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACustomCameraController.h; sourceTree = "<group>"; };
+		D884AD811DADDFDE00AB4EB3 /* RACustomCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACustomCameraController.m; sourceTree = "<group>"; };
+		D884AD831DADE0E200AB4EB3 /* RACustomCameraTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACustomCameraTool.h; sourceTree = "<group>"; };
+		D884AD841DADE0E200AB4EB3 /* RACustomCameraTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACustomCameraTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				5CF338E51BAFF3E900F60ACD /* RACustomCamera */,
 				5CF338B51BAFF22C00F60ACD /* AppDelegate.h */,
 				5CF338B61BAFF22C00F60ACD /* AppDelegate.m */,
+				D884AD801DADDFDE00AB4EB3 /* RACustomCameraController.h */,
+				D884AD811DADDFDE00AB4EB3 /* RACustomCameraController.m */,
 				5CF338BB1BAFF22C00F60ACD /* Main.storyboard */,
 				5CF338BE1BAFF22C00F60ACD /* Assets.xcassets */,
 				5CF338C01BAFF22C00F60ACD /* LaunchScreen.storyboard */,
@@ -142,8 +147,8 @@
 		5CF338E51BAFF3E900F60ACD /* RACustomCamera */ = {
 			isa = PBXGroup;
 			children = (
-				5C4CAD091BB13CA600E3E152 /* RACustomCameraController.h */,
-				5C4CAD0A1BB13CA600E3E152 /* RACustomCameraController.m */,
+				D884AD831DADE0E200AB4EB3 /* RACustomCameraTool.h */,
+				D884AD841DADE0E200AB4EB3 /* RACustomCameraTool.m */,
 			);
 			path = RACustomCamera;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				TargetAttributes = {
 					5CF338AE1BAFF22C00F60ACD = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NQ84VMKY7C;
 					};
 					5CF338C71BAFF22C00F60ACD = {
 						CreatedOnToolsVersion = 7.0;
@@ -278,9 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C4CAD0B1BB13CA600E3E152 /* RACustomCameraController.m in Sources */,
+				D884AD851DADE0E200AB4EB3 /* RACustomCameraTool.m in Sources */,
 				5CF338B71BAFF22C00F60ACD /* AppDelegate.m in Sources */,
 				5CF338B41BAFF22C00F60ACD /* main.m in Sources */,
+				D884AD821DADDFDE00AB4EB3 /* RACustomCameraController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NQ84VMKY7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RACustomCamera",
@@ -426,7 +434,7 @@
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcbl.RACustomCamera;
 				PRODUCT_NAME = RACustomCamera;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -436,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NQ84VMKY7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RACustomCamera",
@@ -443,7 +452,7 @@
 				INFOPLIST_FILE = RACustomCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ra.RACustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zcbl.RACustomCamera;
 				PRODUCT_NAME = RACustomCamera;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
